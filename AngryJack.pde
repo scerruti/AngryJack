@@ -44,7 +44,7 @@ void draw() {
 
     if (pY + pumpkin.height >= scarecrowY + scarecrow.height) {
       vY /= -1.5;
-      vX /= 1.3;
+      vX /= 1.5;
       if (Math.abs(vY) < 1) vY = 0;
       if (Math.abs(vX) < 1) vX = 0;
 
@@ -72,10 +72,7 @@ void draw() {
 
       vX /= -1.5;
     }
-  } else if (mode == MISS) {
-    textSize(28);
-    text("You totally missed, click to try again.", width/3, height/2);
-  } else if (mode == DEAD) {
+  } else if (mode == DEAD || mode == MISS) {
     if (scarecrowAlive) {
       textSize(28);
       text("Scarecrow survived, click to try again.", width/3, height/2);
@@ -84,7 +81,7 @@ void draw() {
       text("Nice smash!", width/3, height/2);
     }
   }
-  
+
   image (pumpkin, pX, pY);
   drawScarecrow();
 }
